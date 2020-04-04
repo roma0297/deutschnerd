@@ -1,0 +1,23 @@
+.NavigationBar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.NavigationBar li {
+    display: inline-block;
+    margin: 20px;
+}
+
+.NavigationBar li a {
+    text-decoration: none;
+    color: black
+}
+
+.NavigationBar li a:hover,
+.NavigationBar li a:active,
+.NavigationBar li a.active{
+    color: orange;
+}

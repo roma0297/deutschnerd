@@ -1,8 +1,16 @@
 import React from 'react';
+import NavigationBar from "./components/NavigationBar/NavigationBar";
+import {BrowserRouter} from "react-router-dom";
+import Routes from "./components/Routes/Routes";
 
 function App() {
   return (
-    <h1>Hello world!</h1>
+      <BrowserRouter>
+          <header>
+            <NavigationBar />
+          </header>
+          <Routes/>
+      </BrowserRouter>
   );
 }
 
