@@ -1,0 +1,53 @@
+.jumbotron {
+    padding: 10rem 1.5rem;
+    color: #292831;
+    background-color: #ffcf31;
+    height: 100vh;
+}
+
+.jumbotron div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.jumbotron .title {
+    font-size: 2.5rem;
+}
+
+.jumbotron div * + * {
+    margin-top: 2rem;
+}
+
+.jumbotron .description {
+    line-height: 2rem;
+    font-size: 1.25rem;
+}
+
+.jumbotron .start-learning-button {
+    font-size: 1.25rem;
+    width: fit-content;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    background-color: #292831;
+    border-radius: .2em;
+}
+.jumbotron .start-learning-button:visited{
+}
+
+.jumbotron .start-learning-button:hover {
+    background-color: #212029;
+}
+
+@media (min-width: 768px) {
+    .jumbotron div {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .jumbotron div {
+        width: 60%;
+    }
+}

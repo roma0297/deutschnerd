@@ -1,15 +1,15 @@
 import React from 'react';
-import NavigationBar from "./components/NavigationBar/NavigationBar";
 import {BrowserRouter} from "react-router-dom";
-import Routes from "./components/Routes/Routes";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import PageContent from "./components/PageContent/PageContent";
 
 function App() {
   return (
       <BrowserRouter>
-          <header>
-            <NavigationBar />
-          </header>
-          <Routes/>
+          <Header />
+          <PageContent />
+          <Footer />
       </BrowserRouter>
   );
 }
