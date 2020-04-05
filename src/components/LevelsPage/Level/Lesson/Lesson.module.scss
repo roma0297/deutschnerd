@@ -1,0 +1,18 @@
+.Lesson {
+  background-color: white;
+  padding: 1rem;
+
+  &__title {
+
+  }
+
+  &__description {
+
+  }
+}
+
+@media (min-width: 768px) {
+  .Lesson {
+    padding: 2rem;
+  }
+}
