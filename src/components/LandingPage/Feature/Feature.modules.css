@@ -17,6 +17,7 @@
     .feature-item {
         flex-direction: row;
         align-items: center;
+        padding: 4rem;
     }
 
     .feature-item-text {
