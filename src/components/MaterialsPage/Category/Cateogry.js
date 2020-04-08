@@ -1,10 +1,9 @@
 import React from 'react';
-
-const changeRoute = (methodProperties) => {
-    console.log(methodProperties)
-};
+import {withRouter} from "react-router";
 
 const category = (props) => {
+
+    const changeRoute = (link) => props.history.push(link);
 
     return (
         <div className={props.className} onClick={() => changeRoute(props.link)}>
@@ -14,4 +13,4 @@ const category = (props) => {
     );
 };
 
-export default category;
+export default withRouter(category);
