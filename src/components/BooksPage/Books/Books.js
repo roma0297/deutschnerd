@@ -5,15 +5,15 @@ import Book from "./Book/Book";
 const booksJSON = [
     {
         id: "book1",
-        name: "Book 1"
+        name: "Article 1"
     },
     {
         id: "book2",
-        name: "Book 2"
+        name: "Article 2"
     },
     {
         id: "book3",
-        name: "Book 3"
+        name: "Article 3"
     }
 ];
 

@@ -7,7 +7,7 @@ import AccountPage from "../AccountPage/AccountPage";
 import React from "react";
 import VocabularyPage from "../VocabularyPage/VocabularyPage";
 import BooksPage from "../BooksPage/BooksPage";
-
+import ArticlesPage from "../ArticlesPage/ArticlesPage";
 
 const routes = () => (
     <Switch>
@@ -18,6 +18,7 @@ const routes = () => (
         <Route path="/account" exact component={AccountPage}/>
         <Route path="/vocabulary" component={VocabularyPage}/>
         <Route path="/books" component={BooksPage}/>
+        <Route path="/articles" component={ArticlesPage}/>
     </Switch>
 );
 
