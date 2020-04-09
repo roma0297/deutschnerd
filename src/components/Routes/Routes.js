@@ -6,6 +6,7 @@ import MaterialsPage from "../MaterialsPage/MaterialsPage";
 import AccountPage from "../AccountPage/AccountPage";
 import React from "react";
 import VocabularyPage from "../VocabularyPage/VocabularyPage";
+import BooksPage from "../BooksPage/BooksPage";
 
 
 const routes = () => (
@@ -16,6 +17,7 @@ const routes = () => (
         <Route path="/materials" exact component={MaterialsPage}/>
         <Route path="/account" exact component={AccountPage}/>
         <Route path="/vocabulary" component={VocabularyPage}/>
+        <Route path="/books" component={BooksPage}/>
     </Switch>
 );
 

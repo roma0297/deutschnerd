@@ -1,0 +1,19 @@
+.Book {
+  background-color: #ffcf31;
+  position: relative;
+  border-radius: .2em;
+  cursor: pointer;
+
+  &:after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  &__inner {
+    padding: 1rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}
