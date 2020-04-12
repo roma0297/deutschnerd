@@ -9,6 +9,7 @@ import VocabularyPage from "../pages/VocabularyPage/VocabularyPage";
 import BooksPage from "../pages/BooksPage/BooksPage";
 import ArticlesPage from "../pages/ArticlesPage/ArticlesPage";
 import LoginPage from "../pages/AuthPage/AuthPage";
+import Logout from "../fragments/Header/NavigationBar/Logout/Logout";
 
 const routes = () => (
     <Switch>
@@ -21,6 +22,7 @@ const routes = () => (
         <Route path="/books" component={BooksPage}/>
         <Route path="/articles" component={ArticlesPage}/>
         <Route path="/login" component={LoginPage}/>
+        <Route path="/logout" component={Logout}/>
     </Switch>
 );
 

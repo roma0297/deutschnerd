@@ -22,6 +22,20 @@ export const authFail = (err) => {
     }
 };
 
+export const logout = () => {
+    return {
+        type: actionTypes.AUTH_LOGOUT
+    }
+};
+
+export const setAuthenticationTimeout = (expirationTimeInSeconds) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(logout())
+        }, expirationTimeInSeconds * 1000)
+    }
+};
+
 export const signUp = (formData) => {
     return dispatch => {
         dispatch(authStart());
@@ -34,6 +48,7 @@ export const signUp = (formData) => {
             })
             .then(res => {
                 console.log(res);
+                dispatch(setAuthenticationTimeout(res.data.expiresIn));
                 dispatch(authSuccess(res))
             })
             .catch(err => {
@@ -54,6 +69,7 @@ export const signIn = (formData) => {
             returnSecureToken: true
         })
         .then(res => {
+            dispatch(setAuthenticationTimeout(res.data.expiresIn));
             dispatch(authSuccess(res.data))
         })
         .catch(err => {
