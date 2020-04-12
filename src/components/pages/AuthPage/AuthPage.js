@@ -14,7 +14,7 @@ const AuthPage = (props) => {
     }
 
     if (props.isAuthenticated) {
-        return <Redirect to="/main"/>
+        return <Redirect to="/"/>
     } else {
         return (
             <section className={styles.AuthSection}>

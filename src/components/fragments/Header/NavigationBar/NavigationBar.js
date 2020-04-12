@@ -10,8 +10,7 @@ const navigationBar = (props) => {
         return (
             <nav className={styles.NavigationBar}>
                 <ul>
-                    <li><NavLink to="/" exact>Landing Page</NavLink></li>
-                    <li><NavLink to="/main">Main</NavLink></li>
+                    <li><NavLink to="/">Main</NavLink></li>
                     <li><NavLink to="/levels">Levels</NavLink></li>
                     <li><NavLink to="/materials">Materials</NavLink></li>
                 </ul>
