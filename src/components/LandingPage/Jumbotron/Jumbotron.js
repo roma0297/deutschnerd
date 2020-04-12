@@ -11,7 +11,7 @@ const jumbotron = () => (
                 человек во всем мире выбрали Deutschnerd.
                 Присоединяйся!
             </p>
-            <Link className={styles.jumbotron__button} to="/main">Начать учиться!</Link>
+            <Link className={styles.jumbotron__button} to="/login">Начать учиться!</Link>
         </div>
     </section>
 );

@@ -1,0 +1,16 @@
+.FormElement {
+  margin-top: 1rem;
+
+  &__label {
+    display: block;
+    margin-bottom: .3rem;
+  }
+
+  &__input {
+    border-radius: .2em;
+    border: 1px solid #bcc0c9;
+    font-size: 1rem;
+    padding: .5rem .7rem;
+    width: 100%;
+  }
+}

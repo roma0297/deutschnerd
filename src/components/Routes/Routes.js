@@ -8,7 +8,7 @@ import React from "react";
 import VocabularyPage from "../VocabularyPage/VocabularyPage";
 import BooksPage from "../BooksPage/BooksPage";
 import ArticlesPage from "../ArticlesPage/ArticlesPage";
-import LoginPage from "../LoginPage/LoginPage";
+import LoginPage from "../AuthPage/AuthPage";
 
 const routes = () => (
     <Switch>

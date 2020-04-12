@@ -1,0 +1,42 @@
+.AuthFormContainer {
+  margin: 1rem;
+
+  &__form {
+    display: flex;
+  }
+
+  .AuthFormButtonContainer {
+    margin-top: 2rem;
+
+    &__button {
+      background-color: #ffcf31;
+      border-radius: .2em;
+      color: #3a3a3a;
+      display: block;
+      font-size: 1rem;
+      padding: .7rem .7rem;
+      width: 100%;
+
+      &:hover {
+        cursor: pointer;
+        color: #000000;
+        box-shadow: 1px 1px #9c9c9c;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .AuthFormContainer {
+    border-radius: .2em;
+    border: 1px solid #bcc0c9;
+    margin: 1rem auto;
+    padding: 3rem;
+    width: 500px;
+
+
+    &__form {
+      display: flex;
+    }
+  }
+}
