@@ -1,16 +1,19 @@
 import React from 'react';
 import {BrowserRouter} from "react-router-dom";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import PageContent from "./components/PageContent/PageContent";
+import Footer from "./components/fragments/Footer/Footer";
+import Header from "./components/fragments/Header/Header";
+import PageContent from "./components/fragments/PageContent/PageContent";
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware, compose} from 'redux';
-import reducer from './store/reducer';
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import authReducer from './store/reducers/authReducer';
 import thunk from 'redux-thunk';
 
+const rootReducer = combineReducers({
+    auth: authReducer
+});
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
-console.log(store);
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 function App() {
   return (

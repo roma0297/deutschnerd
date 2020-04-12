@@ -1,14 +1,14 @@
 import {Route, Switch} from "react-router";
-import LandingPage from "../LandingPage/LandingPage";
-import MainPage from "../MainPage/MainPage";
-import LevelsPage from "../LevelsPage/LevelsPage";
-import MaterialsPage from "../MaterialsPage/MaterialsPage";
-import AccountPage from "../AccountPage/AccountPage";
+import LandingPage from "../pages/LandingPage/LandingPage";
+import MainPage from "../pages/MainPage/MainPage";
+import LevelsPage from "../pages/LevelsPage/LevelsPage";
+import MaterialsPage from "../pages/MaterialsPage/MaterialsPage";
+import AccountPage from "../pages/AccountPage/AccountPage";
 import React from "react";
-import VocabularyPage from "../VocabularyPage/VocabularyPage";
-import BooksPage from "../BooksPage/BooksPage";
-import ArticlesPage from "../ArticlesPage/ArticlesPage";
-import LoginPage from "../AuthPage/AuthPage";
+import VocabularyPage from "../pages/VocabularyPage/VocabularyPage";
+import BooksPage from "../pages/BooksPage/BooksPage";
+import ArticlesPage from "../pages/ArticlesPage/ArticlesPage";
+import LoginPage from "../pages/AuthPage/AuthPage";
 
 const routes = () => (
     <Switch>

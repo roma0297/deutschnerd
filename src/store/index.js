@@ -1,4 +1,4 @@
 export {
     signIn,
     signUp
-} from './authActionCreators'
+} from './actions/authActionCreators'

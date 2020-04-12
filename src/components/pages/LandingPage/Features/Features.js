@@ -1,11 +1,11 @@
 import React from 'react';
 import Feature from "./Feature/Feature";
 import styles from "./Features.module.css"
-import image1 from '../../../assets/images/icons/icon_death-star.v2.svg'
-import image2 from '../../../assets/images/icons/icon_treasure-map.v2.svg'
-import image3 from '../../../assets/images/icons/icon_laboratory.v2.svg'
-import image4 from '../../../assets/images/icons/icon_biceps.v2.svg'
-import image5 from '../../../assets/images/icons/icon_keks-bane.v2.svg'
+import image1 from '../../../../assets/images/icons/icon_death-star.v2.svg'
+import image2 from '../../../../assets/images/icons/icon_treasure-map.v2.svg'
+import image3 from '../../../../assets/images/icons/icon_laboratory.v2.svg'
+import image4 from '../../../../assets/images/icons/icon_biceps.v2.svg'
+import image5 from '../../../../assets/images/icons/icon_keks-bane.v2.svg'
 
 const features = [
     {

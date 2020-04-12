@@ -1,11 +1,20 @@
 import React, {useState} from 'react';
-import FormElement from './Input/FormElement';
-import * as actions from '../../../store';
-import {connect} from 'react-redux';
-import styles from './AuthForm.module.scss';
+import FormElement from "./Input/FormElement";
+import styles from "./AuthForm.module.scss";
+import * as actions from "../../../../store";
+import {connect} from "react-redux";
 
-const SignInForm = (props) => {
+const SignUpForm = (props) => {
     const [inputs, setInputs] = useState({
+        name: {
+            label: 'Name',
+            elementConfig: {
+                placeholder: 'Name',
+                type: 'text',
+                id: 'name'
+            },
+            value: ''
+        },
         email: {
             label: 'Email',
             elementConfig: {
@@ -21,6 +30,15 @@ const SignInForm = (props) => {
                 placeholder: 'Password',
                 type: 'password',
                 id: 'password'
+            },
+            value: ''
+        },
+        checkPassword: {
+            label: 'Confirm Password',
+            elementConfig: {
+                placeholder: 'Confirm Password',
+                type: 'password',
+                id: 'checkPassword'
             },
             value: ''
         }
@@ -40,7 +58,7 @@ const SignInForm = (props) => {
         for (let formElementIdentifier in inputs) {
             formData[formElementIdentifier] = inputs[formElementIdentifier].value
         }
-        props.onSignIn(formData);
+        props.onSignUp(formData);
     };
 
     const formElements = Object.keys(inputs)
@@ -53,13 +71,13 @@ const SignInForm = (props) => {
 
     return (
         <div className={styles.AuthFormContainer}>
-            <h2>Sign in to your Deutschnerd Account</h2>
-            <p>to continue learning</p>
+            <h2>Create your Deutschnerd Account</h2>
+            <p>to start learning</p>
 
             <form onSubmit={registrationFormSubmitHandler}>
                 {formElements}
                 <div className={styles.AuthFormButtonContainer}>
-                    <button className={styles.AuthFormButtonContainer__button} type="submit">Войти</button>
+                    <button className={styles.AuthFormButtonContainer__button} type="submit">Зарегистрироваться</button>
                 </div>
             </form>
         </div>
@@ -69,8 +87,8 @@ const SignInForm = (props) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSignIn: (formData) => dispatch(actions.signIn(formData))
+        onSignUp: (formData) => dispatch(actions.signUp(formData))
     };
 };
 
-export default connect(null, mapDispatchToProps) (SignInForm);
+export default connect(null, mapDispatchToProps) (SignUpForm);
