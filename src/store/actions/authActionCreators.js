@@ -23,6 +23,9 @@ export const authFail = (err) => {
 };
 
 export const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expirationDate');
+    localStorage.removeItem('userId');
     return {
         type: actionTypes.AUTH_LOGOUT
     }
@@ -48,6 +51,11 @@ export const signUp = (formData) => {
             })
             .then(res => {
                 console.log(res);
+                const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
+                localStorage.setItem('token', res.data.idToken);
+                localStorage.setItem('expirationDate', expirationDate);
+                localStorage.setItem('userId', res.data.localId);
+
                 dispatch(setAuthenticationTimeout(res.data.expiresIn));
                 dispatch(authSuccess(res))
             })
@@ -69,6 +77,11 @@ export const signIn = (formData) => {
             returnSecureToken: true
         })
         .then(res => {
+            const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
+            localStorage.setItem('token', res.data.idToken);
+            localStorage.setItem('expirationDate', expirationDate);
+            localStorage.setItem('userId', res.data.localId);
+
             dispatch(setAuthenticationTimeout(res.data.expiresIn));
             dispatch(authSuccess(res.data))
         })
@@ -77,4 +90,22 @@ export const signIn = (formData) => {
             dispatch(authFail(err));
         });
     }
+};
+
+export const checkAuthState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        const expirationDate = new Date(localStorage.getItem('expirationDate'));
+        console.log('checkAuthState', token, expirationDate);
+        if (!token || expirationDate < new Date()) {
+            dispatch(logout());
+        } else {
+            const userId = localStorage.getItem('userId');
+            dispatch(setAuthenticationTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
+            dispatch(authSuccess({
+                idToken: token,
+                localId: userId
+            }))
+        }
+    };
 };

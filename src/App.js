@@ -3,28 +3,25 @@ import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/fragments/Footer/Footer";
 import Header from "./components/fragments/Header/Header";
 import PageContent from "./components/fragments/PageContent/PageContent";
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
-import authReducer from './store/reducers/authReducer';
-import thunk from 'redux-thunk';
+import {connect} from 'react-redux';
+import * as actions from './store/index'
 
-const rootReducer = combineReducers({
-    auth: authReducer
-});
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const App = (props) => {
+  props.trySignInFromState();
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
-
-function App() {
   return (
-      <Provider store={store}>
-          <BrowserRouter>
-              <Header />
-              <PageContent />
-              <Footer />
-          </BrowserRouter>
-      </Provider>
+      <BrowserRouter>
+          <Header />
+          <PageContent />
+          <Footer />
+      </BrowserRouter>
   );
-}
+};
 
-export default App;
+const mapDispatchToProps = dispatch => {
+    return {
+        trySignInFromState: () => dispatch(actions.checkAuthState())
+    };
+};
+
+export default connect(null, mapDispatchToProps)(App);

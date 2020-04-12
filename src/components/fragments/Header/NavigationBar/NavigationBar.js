@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import Logout from "./Logout/Logout";
 
 const navigationBar = (props) => {
+    console.log('Navigation bar rendering with authenticated: ', props.isAuthenticated);
     if (props.isAuthenticated) {
         return (
             <nav className={styles.NavigationBar}>
@@ -26,7 +27,6 @@ const navigationBar = (props) => {
 };
 
 const mapStateToProps = state => {
-    console.log(state.auth.token);
     return {
       isAuthenticated: state.auth.token
     };
