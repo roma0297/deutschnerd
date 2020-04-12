@@ -8,6 +8,7 @@ import React from "react";
 import VocabularyPage from "../VocabularyPage/VocabularyPage";
 import BooksPage from "../BooksPage/BooksPage";
 import ArticlesPage from "../ArticlesPage/ArticlesPage";
+import LoginPage from "../LoginPage/LoginPage";
 
 const routes = () => (
     <Switch>
@@ -19,6 +20,7 @@ const routes = () => (
         <Route path="/vocabulary" component={VocabularyPage}/>
         <Route path="/books" component={BooksPage}/>
         <Route path="/articles" component={ArticlesPage}/>
+        <Route path="/login" component={LoginPage}/>
     </Switch>
 );
 
