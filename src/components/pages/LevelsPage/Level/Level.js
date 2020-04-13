@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Level.module.scss'
-import Lesson from "./Lesson/Lesson";
+import Module from "./Module/Module";
 
 const level = (props) => {
-    const lessonsList = props.lessons.map((lesson, index) => <Lesson key={index} {...lesson} />);
+    const modulesList = props.modules.map((module, index) => <Module key={index} {...module} />);
 
     return (
         <section className={styles.Level}>
@@ -12,7 +12,7 @@ const level = (props) => {
                 <p>{props.description}</p>
             </aside>
             <main className={styles.Level__right}>
-                {lessonsList}
+                {modulesList}
             </main>
         </section>
     );

@@ -1,6 +1,10 @@
-.Lesson {
+.Module {
   background-color: white;
   padding: 1rem;
+
+  &:hover{
+    cursor: pointer;
+  }
 
   &__title {
 
@@ -12,7 +16,7 @@
 }
 
 @media (min-width: 768px) {
-  .Lesson {
+  .Module {
     padding: 2rem;
   }
 }

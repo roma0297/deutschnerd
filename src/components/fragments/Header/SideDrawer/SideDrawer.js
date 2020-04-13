@@ -8,7 +8,7 @@ import SideDrawerToggle from "./SideDrawerToggle/SideDrawerToggle";
 
 
 const SideDrawer = (props) => {
-    let [isSideDrawerVisible, setSideDrawerVisible] = useState(true);
+    let [isSideDrawerVisible, setSideDrawerVisible] = useState(false);
 
     const sideDrawerClosedHandler = () => {
         setSideDrawerVisible(false)

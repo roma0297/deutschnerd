@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Lesson.module.scss'
+import styles from './Modules.module.scss'
 
-const lesson = (props) => (
-    <div className={styles.Lesson}>
-        <h3 className={styles.Lesson__title}>{props.name}</h3>
-        <p className={styles.Lesson__description}>
+const Module = (props) => (
+    <div className={styles.Module}>
+        <h3 className={styles.Module__title}>{props.name}</h3>
+        <p className={styles.Module__description}>
             Изучаем основы HTML и CSS. На практике разбираемся с
             семантической разметкой и базовыми механизмами
             стилизации на примере небольшого сайта.
@@ -12,4 +12,4 @@ const lesson = (props) => (
     </div>
 );
 
-export default lesson;
+export default Module;
