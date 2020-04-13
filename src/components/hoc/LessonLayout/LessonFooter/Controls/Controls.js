@@ -4,9 +4,9 @@ import Link from 'react-router-dom/Link';
 
 const Controls = (props) => (
     <div className={styles.Controls}>
-        <Link className={styles.Controls__button}>Prev</Link>
+        <Link to={props.previousLesson} className={styles.Controls__button}>Prev</Link>
         <p>{`${props.lessonNumber} / ${props.totalAmountOfLessons}`}</p>
-        <Link className={styles.Controls__button}>Next</Link>
+        <Link to={props.nextLesson} className={styles.Controls__button}>Next</Link>
     </div>
 );
 

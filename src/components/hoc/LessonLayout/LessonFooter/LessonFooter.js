@@ -9,6 +9,8 @@ const LessonFooter = (props) => (
         <Controls
             lessonNumber={props.lessonNumber}
             totalAmountOfLessons={props.totalAmountOfLessons}
+            previousLesson={props.previousLesson}
+            nextLesson={props.nextLesson}
         />
         <Help/>
     </footer>);
