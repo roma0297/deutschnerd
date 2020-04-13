@@ -1,24 +1,30 @@
 .NavigationBar {
-    display: flex;
-    justify-content: space-between;
+    display: none;
+}
 
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        text-align: left;
-    }
+@media (min-width: 768px) {
+    .NavigationBar {
+        display: flex;
+        justify-content: space-between;
 
-    li {
-        display: inline-block;
-        margin: 20px;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
 
-        a {
-            text-decoration: none;
-            color: black;
+        li {
+            display: inline-block;
+            margin: 20px;
 
-            &:hover,&:active {
-                color: orange;
+            a {
+                text-decoration: none;
+                color: black;
+
+                &:hover,&:active {
+                    color: orange;
+                }
             }
         }
     }
