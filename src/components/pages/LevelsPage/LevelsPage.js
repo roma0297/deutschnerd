@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './LevelsPage.module.scss'
 import Level from "./Level/Level";
+import Layout from "../../hoc/Layout/Layout";
 
 const levelsJSON = [
     {
@@ -309,11 +310,13 @@ const levelsJSON = [
 ];
 
 const levelsPage = () => (
-    <main className={styles.LevelsContainer}>
-        <Level {...levelsJSON[0]}/>
-        <Level {...levelsJSON[1]}/>
-        <Level {...levelsJSON[2]}/>
-    </main>
+    <Layout>
+        <main className={styles.LevelsContainer}>
+            <Level {...levelsJSON[0]}/>
+            <Level {...levelsJSON[1]}/>
+            <Level {...levelsJSON[2]}/>
+        </main>
+    </Layout>
 );
 
 export default levelsPage;

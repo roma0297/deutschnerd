@@ -9,9 +9,10 @@ import VocabularyPage from '../pages/VocabularyPage/VocabularyPage';
 import BooksPage from '../pages/BooksPage/BooksPage';
 import ArticlesPage from '../pages/ArticlesPage/ArticlesPage';
 import LoginPage from '../pages/AuthPage/AuthPage';
-import Logout from '../fragments/Header/NavigationBar/Logout/Logout';
+import Logout from '../hoc/Layout/Header/NavigationBar/Logout/Logout';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
+import LessonPage from "../pages/LessonPage/LessonPage";
 
 const routes = (props) => {
     let routes = props.isAuthenticated
@@ -25,6 +26,7 @@ const routes = (props) => {
                 <Route path="/books" component={BooksPage}/>
                 <Route path="/articles" component={ArticlesPage}/>
                 <Route path="/logout" component={Logout}/>
+                <Route path="/exercise" component={LessonPage}/>
                 <Redirect to="/"/>
             </Switch>
         )

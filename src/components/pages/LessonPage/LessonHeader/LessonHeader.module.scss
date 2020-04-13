@@ -1,0 +1,19 @@
+.LessonHeader {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  background-color: white;
+
+  & > * {
+    flex-grow: 1;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__account {
+    text-align: right;
+  }
+}

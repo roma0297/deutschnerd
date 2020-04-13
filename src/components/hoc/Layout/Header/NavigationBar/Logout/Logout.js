@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import * as actions from '../../../../../store/index'
+import * as actions from '../../../../../../store'
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom'
 

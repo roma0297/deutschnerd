@@ -3,7 +3,7 @@ import styles from './SideDrawer.module.scss'
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import Logout from "../NavigationBar/Logout/Logout";
-import Backdrop from "../../../UI/Backdrop/Backdrop";
+import Backdrop from "../../../../UI/Backdrop/Backdrop";
 import SideDrawerToggle from "./SideDrawerToggle/SideDrawerToggle";
 
 

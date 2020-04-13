@@ -1,0 +1,39 @@
+.Controls {
+
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  max-width: 280px;
+
+  & > * {
+    flex-grow: 1;
+    align-self: center;
+  }
+
+  &__button {
+    background-color: rgba(0,0,0,0);
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: .2em;
+    font-size: 1rem;
+    padding: .5rem;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
+
+  &__prev {
+
+  }
+
+  p {
+
+  }
+
+  &__next {
+
+  }
+}

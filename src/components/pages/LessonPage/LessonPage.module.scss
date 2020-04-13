@@ -1,0 +1,21 @@
+.ExercisePage {
+
+}
+
+.LessonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .LessonContainer {
+    flex-direction: row;
+    height: 80vh;
+
+    & > * {
+      flex-grow: 1;
+      overflow: scroll;
+    }
+  }
+
+}
