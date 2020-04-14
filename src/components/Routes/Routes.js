@@ -17,6 +17,7 @@ const ArticlesPage = asyncComponent(() => import('../pages/ArticlesPage/Articles
 const LoginPage = asyncComponent(() => import('../pages/AuthPage/AuthPage'));
 const BookPage = asyncComponent(() => import('../pages/BookPage/BookPage'));
 const ArticlePage = asyncComponent(() => import('../pages/ArticlePage/BookPage'));
+const NotFoundPage = asyncComponent(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const routes = (props) => {
     return props.isAuthenticated
@@ -33,7 +34,7 @@ const routes = (props) => {
                 <Route path="/articles/:id" exact component={ArticlePage}/>
                 <Route path="/logout" component={Logout}/>
                 <Route path="/exercise" component={LessonAlphabet}/>
-                <Redirect to="/"/>
+                <Route path="/" component={NotFoundPage}/>
             </Switch>
         )
         : (
