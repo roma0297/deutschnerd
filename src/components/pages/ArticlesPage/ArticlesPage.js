@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ArticlesPage.module.scss';
 import SearchBox from "./SearchBox/SearchBox";
-import Books from "./Articles/Articles";
+import Articles from "./Articles/Articles";
 import Layout from '../../hoc/Layout/Layout';
 
 const articlesPage = () => (
@@ -16,7 +16,7 @@ const articlesPage = () => (
             </aside>
             <main>
                 <SearchBox/>
-                <Books/>
+                <Articles/>
             </main>
         </div>
     </Layout>

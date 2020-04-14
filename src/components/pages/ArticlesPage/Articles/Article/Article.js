@@ -10,7 +10,7 @@ const article = (props) => {
     return(
         <div className={styles.Article} onClick={() => handleClick(`/articles/${props.id}`)}>
             <div className={styles.Article__inner}>
-                <h3>{props.name || ""}</h3>
+                <h3>{props.title || ""}</h3>
             </div>
         </div>
     )

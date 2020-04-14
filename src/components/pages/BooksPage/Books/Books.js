@@ -1,28 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Books.module.scss'
-import Book from "./Book/Book";
+import Book from './Book/Book';
+import {connect} from 'react-redux';
+import axios from 'axios'
 
-const booksJSON = [
-    {
-        id: "book1",
-        name: "Article 1"
-    },
-    {
-        id: "book2",
-        name: "Article 2"
-    },
-    {
-        id: "book3",
-        name: "Article 3"
+const Books = (props) => {
+    let [books, setBooks] = useState([])
+
+    useEffect(() => {
+        axios.get(`https://dn-app-c1adb.firebaseio.com/books.json?auth=${props.token}`)
+            .then(res => setBooks(res.data))
+            .catch(err => console.log(err));
+    }, [props.token])
+
+    console.log(books);
+
+    return (
+        <div className={styles.BooksContainer}>
+            {
+                Object.keys(books).map((id) => <Book key={id} id={id} {...books[id]} />)
+            }
+        </div>
+    )
+};
+
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
     }
-];
+}
 
-const books = () => (
-    <div className={styles.BooksContainer}>
-        {
-            booksJSON.map((val) => <Book key={val.id} {...val} />)
-        }
-    </div>
-);
-
-export default books;
+export default connect(mapStateToProps)(Books);

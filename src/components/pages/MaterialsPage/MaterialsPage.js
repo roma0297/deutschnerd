@@ -9,7 +9,7 @@ const materialsPage = () => (
             <div className={styles.MaterialsContainer__inner}>
                 <h2 className={styles.ReadingTitle}>Читать</h2>
                 <Category className={styles.Vocabulary} title="Слова и фразы" link="/vocabulary"/>
-                <Category className={styles.Books} title="Книги" link="/articles"/>
+                <Category className={styles.Books} title="Книги" link="/books"/>
                 <Category className={styles.Articles} title="Статьи" link="/articles"/>
 
                 <h2 className={styles.ListeningTitle}>Слушать</h2>
