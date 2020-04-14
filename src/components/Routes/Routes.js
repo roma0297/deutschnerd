@@ -1,23 +1,25 @@
 import {Route, Switch} from "react-router/esm/react-router";
-import LandingPage from '../pages/LandingPage/LandingPage';
-import MainPage from '../pages/MainPage/MainPage';
-import LevelsPage from '../pages/LevelsPage/LevelsPage';
-import MaterialsPage from '../pages/MaterialsPage/MaterialsPage';
-import AccountPage from '../pages/AccountPage/AccountPage';
 import React from 'react';
-import VocabularyPage from '../pages/VocabularyPage/VocabularyPage';
-import BooksPage from '../pages/BooksPage/BooksPage';
-import ArticlesPage from '../pages/ArticlesPage/ArticlesPage';
-import LoginPage from '../pages/AuthPage/AuthPage';
 import Logout from '../hoc/Layout/Header/NavigationBar/Logout/Logout';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
 import LessonAlphabet from '../modules/module1/lesson1/LessonAlphabet';
-import BookPage from '../pages/BookPage/BookPage';
-import ArticlePage from '../pages/ArticlePage/BookPage';
+import asyncComponent from "../hoc/asyncComponent";
+
+const LandingPage = asyncComponent(() => import('../pages/LandingPage/LandingPage'));
+const MainPage = asyncComponent(() => import('../pages/MainPage/MainPage'));
+const LevelsPage = asyncComponent(() => import('../pages/LevelsPage/LevelsPage'));
+const MaterialsPage = asyncComponent(() => import('../pages/MaterialsPage/MaterialsPage'));
+const AccountPage = asyncComponent(() => import('../pages/AccountPage/AccountPage'));
+const VocabularyPage = asyncComponent(() => import('../pages/VocabularyPage/VocabularyPage'));
+const BooksPage = asyncComponent(() => import('../pages/BooksPage/BooksPage'));
+const ArticlesPage = asyncComponent(() => import('../pages/ArticlesPage/ArticlesPage'));
+const LoginPage = asyncComponent(() => import('../pages/AuthPage/AuthPage'));
+const BookPage = asyncComponent(() => import('../pages/BookPage/BookPage'));
+const ArticlePage = asyncComponent(() => import('../pages/ArticlePage/BookPage'));
 
 const routes = (props) => {
-    let routes = props.isAuthenticated
+    return props.isAuthenticated
         ? (
             <Switch>
                 <Route path="/" exact component={MainPage}/>
@@ -41,8 +43,6 @@ const routes = (props) => {
                 <Redirect to="/"/>
             </Switch>
         );
-
-    return routes;
 }
 
 const mapStateToProps = state => {
