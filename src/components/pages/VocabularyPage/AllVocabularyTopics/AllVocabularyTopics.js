@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import styles from './VocabularyTopics.module.scss'
-import VocabularyTopic from './VocabularyTopic/VocabularyTopic';
+import styles from './AllVocabularyTopics.module.scss'
+import VocabularyTopic from '../VocabularyTopic/VocabularyTopic';
 import {connect} from 'react-redux';
 import axios from "axios";
 import Book from "../../BooksPage/Books/Book/Book";
@@ -56,7 +56,7 @@ const vocabularyTopicsJSON = [
     }
 ];
 
-const VocabularyTopics = (props) => {
+const AllVocabularyTopics = (props) => {
     let [topics, setTopics] = useState({})
 
     useEffect(() => {
@@ -80,4 +80,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(VocabularyTopics);
+export default connect(mapStateToProps)(AllVocabularyTopics);

@@ -28,8 +28,8 @@ const routes = (props) => {
                 <Route path="/levels" exact component={LevelsPage}/>
                 <Route path="/materials" exact component={MaterialsPage}/>
                 <Route path="/account" exact component={AccountPage}/>
-                <Route path="/vocabulary" exact component={VocabularyPage}/>
                 <Route path="/vocabulary/topics/:id" exact component={VocabularyTopicPage}/>
+                <Route path="/vocabulary" component={VocabularyPage}/>
                 <Route path="/books" exact component={BooksPage}/>
                 <Route path="/books/:id" component={BookPage}/>
                 <Route path="/articles" exact component={ArticlesPage}/>
