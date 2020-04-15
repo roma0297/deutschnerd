@@ -19,6 +19,11 @@ const MaterialsPage = asyncComponent(() => import('../pages/MaterialsPage/Materi
 const NotFoundPage = asyncComponent(() => import('../pages/NotFoundPage/NotFoundPage'));
 const VocabularyPage = asyncComponent(() => import('../pages/VocabularyPage/VocabularyPage'));
 const VocabularyTopicPage = asyncComponent(() => import('../pages/VocabularyTopicPage/VocabularyTopicPage'));
+const MusicPage = asyncComponent(() => import('../pages/MusicPage/MusicPage'));
+const AudiobooksPage = asyncComponent(() => import('../pages/AudiobooksPage/AudiobooksPage'));
+const FilmsPage = asyncComponent(() => import('../pages/FilmsPage/FilmsPage'));
+const PodcastsPage = asyncComponent(() => import('../pages/PodcastsPage/PodcastsPage'));
+const SeriesPage = asyncComponent(() => import('../pages/SeriesPage/SeriesPage'));
 
 const routes = (props) => {
     return props.isAuthenticated
@@ -43,6 +48,13 @@ const routes = (props) => {
                 <Route path="/articles/my" exact component={ArticlesPage}/>
                 <Route path="/articles" exact component={ArticlesPage}/>
                 <Route path="/articles/:id" exact component={ArticlePage}/>
+
+                <Route path="/music" exact component={MusicPage}/>
+                <Route path="/audiobooks" exact component={AudiobooksPage}/>
+                <Route path="/podcasts" exact component={PodcastsPage}/>
+
+                <Route path="/films" exact component={FilmsPage}/>
+                <Route path="/series" exact component={SeriesPage}/>
 
                 <Route path="/logout" component={Logout}/>
                 <Route path="/exercise" component={LessonAlphabet}/>
