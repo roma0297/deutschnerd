@@ -8,9 +8,9 @@ const vocabularyTopic = (props) => {
     };
 
     return(
-        <div className={styles.VocabularyTopic} onClick={() => handleClick(`/vocabulary/${props.id}`)}>
+        <div className={styles.VocabularyTopic} onClick={() => handleClick(`/vocabulary/topics/${props.id}`)}>
             <div className={styles.VocabularyTopic__inner}>
-                <h3>{props.name || ""}</h3>
+                <h3>{props.title || ""}</h3>
             </div>
         </div>
     )

@@ -6,18 +6,19 @@ import {Redirect} from 'react-router';
 import LessonAlphabet from '../modules/module1/lesson1/LessonAlphabet';
 import asyncComponent from "../hoc/asyncComponent";
 
-const LandingPage = asyncComponent(() => import('../pages/LandingPage/LandingPage'));
-const MainPage = asyncComponent(() => import('../pages/MainPage/MainPage'));
-const LevelsPage = asyncComponent(() => import('../pages/LevelsPage/LevelsPage'));
-const MaterialsPage = asyncComponent(() => import('../pages/MaterialsPage/MaterialsPage'));
 const AccountPage = asyncComponent(() => import('../pages/AccountPage/AccountPage'));
-const VocabularyPage = asyncComponent(() => import('../pages/VocabularyPage/VocabularyPage'));
-const BooksPage = asyncComponent(() => import('../pages/BooksPage/BooksPage'));
-const ArticlesPage = asyncComponent(() => import('../pages/ArticlesPage/ArticlesPage'));
-const LoginPage = asyncComponent(() => import('../pages/AuthPage/AuthPage'));
-const BookPage = asyncComponent(() => import('../pages/BookPage/BookPage'));
 const ArticlePage = asyncComponent(() => import('../pages/ArticlePage/BookPage'));
+const ArticlesPage = asyncComponent(() => import('../pages/ArticlesPage/ArticlesPage'));
+const BookPage = asyncComponent(() => import('../pages/BookPage/BookPage'));
+const BooksPage = asyncComponent(() => import('../pages/BooksPage/BooksPage'));
+const LandingPage = asyncComponent(() => import('../pages/LandingPage/LandingPage'));
+const LevelsPage = asyncComponent(() => import('../pages/LevelsPage/LevelsPage'));
+const LoginPage = asyncComponent(() => import('../pages/AuthPage/AuthPage'));
+const MainPage = asyncComponent(() => import('../pages/MainPage/MainPage'));
+const MaterialsPage = asyncComponent(() => import('../pages/MaterialsPage/MaterialsPage'));
 const NotFoundPage = asyncComponent(() => import('../pages/NotFoundPage/NotFoundPage'));
+const VocabularyPage = asyncComponent(() => import('../pages/VocabularyPage/VocabularyPage'));
+const VocabularyTopicPage = asyncComponent(() => import('../pages/VocabularyTopicPage/VocabularyTopicPage'));
 
 const routes = (props) => {
     return props.isAuthenticated
@@ -28,6 +29,7 @@ const routes = (props) => {
                 <Route path="/materials" exact component={MaterialsPage}/>
                 <Route path="/account" exact component={AccountPage}/>
                 <Route path="/vocabulary" exact component={VocabularyPage}/>
+                <Route path="/vocabulary/topics/:id" exact component={VocabularyTopicPage}/>
                 <Route path="/books" exact component={BooksPage}/>
                 <Route path="/books/:id" component={BookPage}/>
                 <Route path="/articles" exact component={ArticlesPage}/>

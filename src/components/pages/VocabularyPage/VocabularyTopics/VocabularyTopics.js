@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './VocabularyTopics.module.scss'
-import VocabularyTopic from "./VocabularyTopic/VocabularyTopic";
+import VocabularyTopic from './VocabularyTopic/VocabularyTopic';
+import {connect} from 'react-redux';
+import axios from "axios";
+import Book from "../../BooksPage/Books/Book/Book";
 
 const vocabularyTopicsJSON = [
     {
@@ -53,12 +56,28 @@ const vocabularyTopicsJSON = [
     }
 ];
 
-const vocabularyTopics = () => (
-    <div className={styles.VocabularyTopicsContainer}>
-        {
-            vocabularyTopicsJSON.map((val) => <VocabularyTopic key={val.id} {...val} />)
-        }
-    </div>
-);
+const VocabularyTopics = (props) => {
+    let [topics, setTopics] = useState({})
 
-export default vocabularyTopics;
+    useEffect(() => {
+        axios.get(`https://dn-app-c1adb.firebaseio.com/vocabulary/topics.json?auth=${props.token}`)
+            .then(res => setTopics(res.data))
+            .catch(err => console.log(err));
+    }, [props.token])
+
+    return (
+        <div className={styles.VocabularyTopicsContainer}>
+            {
+                Object.keys(topics).map((id) => <VocabularyTopic key={id} id={id} {...topics[id]} />)
+            }
+        </div>
+    )
+};
+
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
+    }
+}
+
+export default connect(mapStateToProps)(VocabularyTopics);
