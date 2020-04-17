@@ -1,23 +1,17 @@
 import React from 'react';
 import {BrowserRouter} from "react-router-dom";
-import {connect} from 'react-redux';
-import * as actions from './store/index'
 import Routes from "./components/Routes/Routes";
+import {AuthProvider} from "./context/authentication";
 
-const App = (props) => {
-  props.trySignInFromState();
-
+const App = () => {
   return (
-      <BrowserRouter>
-          <Routes/>
-      </BrowserRouter>
+      <AuthProvider>
+          <BrowserRouter>
+              <Routes/>
+          </BrowserRouter>
+      </AuthProvider>
   );
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        trySignInFromState: () => dispatch(actions.checkAuthState())
-    };
-};
 
-export default connect(null, mapDispatchToProps)(App);
+export default App;

@@ -1,30 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import Layout from '../../hoc/Layout/Layout';
-import axios from 'axios';
 import {withRouter} from 'react-router';
-import {connect} from 'react-redux';
+import {firestore} from "../../../init-firebase";
 
 const BookPage = (props) => {
     let [book, setBook] = useState({})
 
     useEffect(() => {
-        console.log(props.token)
-        axios.get(`https://dn-app-c1adb.firebaseio.com/books/${props.match.params.id}.json?auth=${props.token}`)
-            .then(res => setBook(res.data))
-            .catch(err => console.log(err));
-    }, [props.match.params.id, props.token])
+        firestore.collection(`books`).doc(props.match.params.id).get().then(doc => {
+            console.log(doc)
+            setBook(doc.data())
+        });
+    }, [props.match.params.id])
 
     return(
         <Layout>
-            <div>Book name: {book.name}</div>
+            <div>Book name: {book.title}</div>
         </Layout>
     )
 };
 
-const mapStateToProps = state => {
-    return {
-        token: state.auth.token
-    }
-}
-
-export default connect(mapStateToProps) (withRouter(BookPage));
+export default withRouter(BookPage);

@@ -5,7 +5,7 @@ import Header from './Header/Header';
 const Layout = (props) => (
     <div className="page-content">
         <Header/>
-        {props.children}
+            {props.children}
         <Footer/>
     </div>
 );

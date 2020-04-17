@@ -1,20 +1,17 @@
 import React, {useEffect} from 'react';
-import * as actions from '../../../../../../store'
-import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom'
+import {auth} from '../../../../../../init-firebase';
+import {Redirect} from 'react-router';
 
-const Logout = (props) => {
+const Logout = () => {
     useEffect(() => {
-        props.logout();
+        auth.signOut().then(() => {
+            console.log('Sign-out successful');
+        }).catch(error => {
+            console.log('An error happened during sign out', error);
+        })
     });
 
     return (<Redirect to="/"/>);
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        logout: () => dispatch(actions.logout())
-    }
-};
-
-export default connect(null, mapDispatchToProps)(Logout);
+export default Logout;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './AuthPage.module.scss'
 import SignInForm from "./forms/SignInForm";
-import {connect} from "react-redux";
 import Spinner from "../../UI/Spinner/Spinner";
 import {Redirect} from 'react-router-dom';
+import {auth} from "../../../init-firebase";
 
 const AuthPage = (props) => {
 
@@ -13,7 +13,9 @@ const AuthPage = (props) => {
         form = (<Spinner/>);
     }
 
-    if (props.isAuthenticated) {
+    console.log('AuthPage component', auth.currentUser);
+
+    if (auth.currentUser) {
         return <Redirect to="/"/>
     } else {
         return (
@@ -24,11 +26,4 @@ const AuthPage = (props) => {
     }
 };
 
-const mapStateToProps = state => {
-    return {
-        loading: state.auth.loading,
-        isAuthenticated: state.auth.token
-    }
-};
-
-export default connect(mapStateToProps)(AuthPage);
+export default AuthPage;

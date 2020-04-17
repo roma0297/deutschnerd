@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import FormElement from "./Input/FormElement";
 import styles from "./AuthForm.module.scss";
 import * as actions from "../../../../store";
-import {connect} from "react-redux";
 
 const SignUpForm = (props) => {
     const [inputs, setInputs] = useState({
@@ -84,11 +83,4 @@ const SignUpForm = (props) => {
     )
 };
 
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onSignUp: (formData) => dispatch(actions.signUp(formData))
-    };
-};
-
-export default connect(null, mapDispatchToProps) (SignUpForm);
+export default SignUpForm;

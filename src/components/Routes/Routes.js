@@ -1,13 +1,13 @@
 import {Route, Switch} from "react-router/esm/react-router";
-import React from 'react';
+import React, {useContext} from 'react';
 import Logout from '../hoc/Layout/Header/NavigationBar/Logout/Logout';
-import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
 import LessonAlphabet from '../modules/module1/lesson1/LessonAlphabet';
 import asyncComponent from "../hoc/asyncComponent";
+import {AuthContext} from "../../context/authentication";
 
 const AccountPage = asyncComponent(() => import('../pages/AccountPage/AccountPage'));
-const ArticlePage = asyncComponent(() => import('../pages/ArticlePage/BookPage'));
+const ArticlePage = asyncComponent(() => import('../pages/ArticlePage/ArticlePage'));
 const ArticlesPage = asyncComponent(() => import('../pages/ArticlesPage/ArticlesPage'));
 const BookPage = asyncComponent(() => import('../pages/BookPage/BookPage'));
 const BooksPage = asyncComponent(() => import('../pages/BooksPage/BooksPage'));
@@ -25,8 +25,10 @@ const FilmsPage = asyncComponent(() => import('../pages/FilmsPage/FilmsPage'));
 const PodcastsPage = asyncComponent(() => import('../pages/PodcastsPage/PodcastsPage'));
 const SeriesPage = asyncComponent(() => import('../pages/SeriesPage/SeriesPage'));
 
-const routes = (props) => {
-    return props.isAuthenticated
+const Routes = () => {
+    const currentUser = useContext(AuthContext);
+
+    return currentUser
         ? (
             <Switch>
                 <Route path="/" exact component={MainPage}/>
@@ -70,10 +72,4 @@ const routes = (props) => {
         );
 }
 
-const mapStateToProps = state => {
-    return {
-        isAuthenticated: state.auth.token
-    }
-};
-
-export default connect(mapStateToProps)(routes);
+export default Routes;

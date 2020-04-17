@@ -10,7 +10,7 @@ const book = (props) => {
     return(
         <div className={styles.Book} onClick={() => handleClick(`/books/${props.id}`)}>
             <div className={styles.Book__inner}>
-                <h3>{props.name || ""}</h3>
+                <h3>{props.title || ""}</h3>
             </div>
         </div>
     )

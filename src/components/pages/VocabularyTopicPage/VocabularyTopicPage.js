@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {connect} from 'react-redux';
-import axios from "axios";
 import Layout from "../../hoc/Layout/Layout";
+import {firestore} from "../../../init-firebase";
 
 const VocabularyTopicPage = props => {
     let [topic, setTopic] = useState({});
 
     useEffect(() => {
-        axios.get(`https://dn-app-c1adb.firebaseio.com/vocabulary/topics/${props.match.params.id}.json?auth=${props.token}`)
-            .then(res => setTopic(res.data))
-            .catch(err => console.log(err));
+        firestore.collection(`vocabulary`).doc(props.match.params.id).get().then(doc => {
+            console.log(doc)
+            setTopic(doc.data())
+        });
     }, [props.match.params.id, props.token])
 
     return (
@@ -19,10 +19,4 @@ const VocabularyTopicPage = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        token: state.auth.token
-    }
-}
-
-export default connect(mapStateToProps)(VocabularyTopicPage)
+export default VocabularyTopicPage

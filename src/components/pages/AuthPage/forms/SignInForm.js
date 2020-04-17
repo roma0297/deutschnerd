@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import FormElement from './Input/FormElement';
-import * as actions from '../../../../store';
-import {connect} from 'react-redux';
 import styles from './AuthForm.module.scss';
+import {auth} from "../../../../init-firebase";
+import {withRouter} from "react-router";
+import Spinner from "../../../UI/Spinner/Spinner";
 
 const SignInForm = (props) => {
+    const [loading, setLoading] = useState(false);
     const [inputs, setInputs] = useState({
         email: {
             label: 'Email',
@@ -34,14 +36,18 @@ const SignInForm = (props) => {
         setInputs(updatedInputs);
     };
 
-    const registrationFormSubmitHandler = (event) => {
-        event.preventDefault();
-        const formData = {};
-        for (let formElementIdentifier in inputs) {
-            formData[formElementIdentifier] = inputs[formElementIdentifier].value
+    const signInHandler = useCallback(
+        async event => {
+            event.preventDefault();
+            setLoading(true)
+            try {
+                await auth.signInWithEmailAndPassword(inputs.email.value, inputs.password.value).catch(err => console.log(err))
+                props.history.push('/')
+            } catch (err) {
+                console.log(err);
+            }
         }
-        props.onSignIn(formData);
-    };
+    )
 
     const formElements = Object.keys(inputs)
         .map(key => <FormElement
@@ -51,12 +57,16 @@ const SignInForm = (props) => {
             />
         );
 
+    if (loading) {
+        return <Spinner/>;
+    }
+
     return (
         <div className={styles.AuthFormContainer}>
             <h2>Sign in to your Deutschnerd Account</h2>
             <p>to continue learning</p>
 
-            <form onSubmit={registrationFormSubmitHandler}>
+            <form onSubmit={signInHandler}>
                 {formElements}
                 <div className={styles.AuthFormButtonContainer}>
                     <button className={styles.AuthFormButtonContainer__button} type="submit">Войти</button>
@@ -66,11 +76,4 @@ const SignInForm = (props) => {
     )
 };
 
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onSignIn: (formData) => dispatch(actions.signIn(formData))
-    };
-};
-
-export default connect(null, mapDispatchToProps) (SignInForm);
+export default withRouter(SignInForm);
