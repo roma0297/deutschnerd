@@ -1,0 +1,32 @@
+.SeriesContainer {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  padding: 1rem;
+  grid-gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 375px) {
+  .SeriesContainer {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .SeriesContainer {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .SeriesContainer {
+    grid-template-columns: repeat(3,minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .SeriesContainer {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

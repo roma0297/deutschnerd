@@ -9,22 +9,23 @@ import {AuthContext} from "../../context/authentication";
 const AccountPage = asyncComponent(() => import('../pages/AccountPage/AccountPage'));
 const ArticlePage = asyncComponent(() => import('../pages/ArticlePage/ArticlePage'));
 const ArticlesPage = asyncComponent(() => import('../pages/ArticlesPage/ArticlesPage'));
+const AudiobooksPage = asyncComponent(() => import('../pages/AudiobooksPage/AudiobooksPage'));
 const BookPage = asyncComponent(() => import('../pages/BookPage/BookPage'));
 const BooksPage = asyncComponent(() => import('../pages/BooksPage/BooksPage'));
+const FilmPage = asyncComponent(() => import('../pages/FilmPage/FilmPage'));
+const FilmsPage = asyncComponent(() => import('../pages/FilmsPage/FilmsPage'));
 const LandingPage = asyncComponent(() => import('../pages/LandingPage/LandingPage'));
 const LevelsPage = asyncComponent(() => import('../pages/LevelsPage/LevelsPage'));
 const LoginPage = asyncComponent(() => import('../pages/AuthPage/AuthPage'));
 const MainPage = asyncComponent(() => import('../pages/MainPage/MainPage'));
 const MaterialsPage = asyncComponent(() => import('../pages/MaterialsPage/MaterialsPage'));
+const MusicPage = asyncComponent(() => import('../pages/MusicPage/MusicPage'));
 const NotFoundPage = asyncComponent(() => import('../pages/NotFoundPage/NotFoundPage'));
+const PodcastsPage = asyncComponent(() => import('../pages/PodcastsPage/PodcastsPage'));
+const SerialPage = asyncComponent(() => import('../pages/SerialPage/SerialPage'));
+const SeriesPage = asyncComponent(() => import('../pages/SeriesPage/SeriesPage'));
 const VocabularyPage = asyncComponent(() => import('../pages/VocabularyPage/VocabularyPage'));
 const VocabularyTopicPage = asyncComponent(() => import('../pages/VocabularyTopicPage/VocabularyTopicPage'));
-const MusicPage = asyncComponent(() => import('../pages/MusicPage/MusicPage'));
-const AudiobooksPage = asyncComponent(() => import('../pages/AudiobooksPage/AudiobooksPage'));
-const FilmsPage = asyncComponent(() => import('../pages/FilmsPage/FilmsPage'));
-const FilmPage = asyncComponent(() => import('../pages/FilmPage/FilmPage'));
-const PodcastsPage = asyncComponent(() => import('../pages/PodcastsPage/PodcastsPage'));
-const SeriesPage = asyncComponent(() => import('../pages/SeriesPage/SeriesPage'));
 
 const Routes = () => {
     const currentUser = useContext(AuthContext);
@@ -62,6 +63,11 @@ const Routes = () => {
                 <Route path="/films/my" exact component={FilmsPage}/>
                 <Route path="/films/:id" exact component={FilmPage}/>
 
+                <Route path="/series" exact component={SeriesPage}/>
+                <Route path="/series/all" exact component={SeriesPage}/>
+                <Route path="/series/recommended" exact component={SeriesPage}/>
+                <Route path="/series/my" exact component={SeriesPage}/>
+                <Route path="/series/:id" exact component={SerialPage}/>
                 <Route path="/series" exact component={SeriesPage}/>
 
                 <Route path="/logout" component={Logout}/>

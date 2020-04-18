@@ -1,0 +1,42 @@
+.Serial {
+  cursor: pointer;
+  align-self: stretch;
+
+  &__inner {
+    border-radius: .2em;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 300;
+      white-space: nowrap;
+      display: block;
+      max-width: 100%;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    &_hover {
+      padding: 1rem;
+      background-color: #787878;
+      margin: -.5rem;
+      color: white;
+
+      & > * + * {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
