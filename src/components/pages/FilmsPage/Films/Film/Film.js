@@ -1,9 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./Film.module.scss";
+import {storage} from "../../../../../init-firebase";
 import {withRouter} from 'react-router';
 
 const Film = (props) => {
     let [hover, setHover] = useState(false);
+    let [coverUrl, setCoverUrl] = useState('');
+
+    useEffect(() => {
+        storage.refFromURL(props.coverUrl).getDownloadURL()
+            .then(setCoverUrl)
+            .catch(err => {
+                console.log('Unable to fetch cover URL');
+            })
+    })
 
     const handleClick = (link) => {
         props.history.push(link)
@@ -29,8 +39,8 @@ const Film = (props) => {
             ) : (
                 <>
                     <div className={styles.Film__inner}>
-                        <img src={"https://firebasestorage.googleapis.com/v0/b/dn-application.appspot.com/o/Film%20covers%2F9855.jpg?alt=media&token=bd1f7742-a777-4aa3-859b-4582e5c81486"}/>
-                        <h3>{props.title || ""}</h3>
+                        <img src={coverUrl}/>
+                    <h3>{props.title || ""}</h3>
                     </div>
                 </>
             )}
