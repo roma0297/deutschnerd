@@ -2,28 +2,42 @@ import React, {useEffect, useState} from 'react';
 import Layout from "../../hoc/Layout/Layout";
 import {firestore, storage} from "../../../init-firebase";
 import Spinner from "../../UI/Spinner/Spinner";
+import styles from './FilmPage.module.scss'
 
 const FilmPage = (props) => {
     let [filmInformation, setFilmInformation] = useState({})
     let [filmUrl, setFilmUrl] = useState(null)
+    let [coverUrl, setCoverUrl] = useState(null)
     let [loading, setLoading] = useState(true)
 
     useEffect(() => {
         firestore.collection(`films`).doc(props.match.params.id).get()
             .then(doc => {
-                console.log(doc)
-                setFilmInformation(doc.data())
+                console.log(doc.data())
+                const film = doc.data()
+                setFilmInformation(film)
+                return film
             })
             .then(() => {
-                storage.refFromURL('gs://dn-application.appspot.com/Winter Saint Petersburg Russia 6K. Shot on Zenmuse X7 Drone__ Зимний Петербург, аэросъёмка.mp4').getDownloadURL()
+                console.log(filmInformation.videoUrl)
+                storage.refFromURL(filmInformation.videoUrl).getDownloadURL()
                     .then(url => {
+                        console.log(url)
                         setFilmUrl(url)
-                        console.log('Video URL: ', url)
                         setLoading(false)
                     })
+                    .catch(err => console.log(err))
+                storage.refFromURL(filmInformation.coverUrl).getDownloadURL()
+                    .then(url => {
+                        console.log(url)
+                        setCoverUrl(url)
+                        setLoading(false)
+                    })
+                    .catch(err => console.log(err))
             })
+            .catch(err => console.log(err))
 
-    }, [props.match.params.id])
+    }, [filmInformation.videoUrl, props.match.params.id])
 
     if (loading) {
         return <Spinner/>
@@ -31,9 +45,23 @@ const FilmPage = (props) => {
 
     return (
         <Layout>
-            <video controls>
-                <source src={filmUrl} type="video/mp4"/>
-            </video>
+            <div className={styles.FilmContainer}>
+                <aside className={styles.FilmContainer__left}>
+                    <img src={coverUrl}/>
+                    <h3>{filmInformation.title}</h3>
+                    <p><span>Duration: </span>{filmInformation.duration} min. </p>
+                    <p><span>Year: </span>{filmInformation.year} </p>
+                    <p><span>IMDB: </span>{filmInformation.rating}</p>
+                </aside>
+                <figure className={styles.FilmContainer__video}>
+                    <video controls>
+                        <source src={filmUrl} type="video/mp4"/>
+                    </video>
+                    <figcaption>
+                        <p>{filmInformation.description}</p>
+                    </figcaption>
+                </figure>
+            </div>
         </Layout>
     )
 }

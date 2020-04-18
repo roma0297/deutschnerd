@@ -13,7 +13,7 @@ const Film = (props) => {
             .catch(err => {
                 console.log('Unable to fetch cover URL');
             })
-    })
+    }, [props.coverUrl])
 
     const handleClick = (link) => {
         props.history.push(link)
