@@ -2,8 +2,10 @@ import React, {useEffect, useState} from 'react';
 import styles from './AllVocabularyTopics.module.scss'
 import VocabularyTopic from '../VocabularyTopic/VocabularyTopic';
 import {firestore} from "../../../../init-firebase";
+import Spinner from "../../../UI/Spinner/Spinner";
 
 const AllVocabularyTopics = (props) => {
+    let [loading, setLoading] = useState({})
     let [topics, setTopics] = useState({})
 
     useEffect(() => {
@@ -13,8 +15,13 @@ const AllVocabularyTopics = (props) => {
                 id: doc.id,
                 ...doc.data()
             })))
+            setLoading(false)
         });
     }, [props.token])
+
+    if (loading) {
+        return <Spinner/>
+    }
 
     return (
         <div className={styles.VocabularyTopicsContainer}>

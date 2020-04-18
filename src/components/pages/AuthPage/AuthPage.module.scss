@@ -1,3 +1,10 @@
+.AuthSection {
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 768px) {
   .AuthSection {
     display: flex;

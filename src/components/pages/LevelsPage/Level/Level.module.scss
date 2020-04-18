@@ -4,12 +4,14 @@
   padding: 1rem;
 
   &__left{
-    padding: 1rem;
     display: flex;
     flex-direction: column;
 
+    h2 {
+      margin-top: 2rem;
+    }
     p {
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
   }
 
@@ -27,13 +29,38 @@
 @media (min-width: 768px) {
   .Level {
     flex-direction: row;
-    padding: 4rem;
-    max-width: 1024px;
+    padding: 1rem;
+    margin: 0 auto;
+
+    &__left {
+      padding: 0 1rem;
+      width: 25%;
+      min-width: 25%;
+      max-width: 25%;
+
+      h2 {
+        margin-top: 0;
+      }
+    }
+
+    &__right{
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1em;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .Level {
+    flex-direction: row;
+    padding: 2rem 4rem;
     margin: 0 auto;
 
     &__left{
-      padding: 0 1rem;
-      width: 550px
+      padding: 0 1rem 0 0;
+      width: 20%;
+      min-width: 20%;
+      max-width: 20%;
     }
 
     &__right{
@@ -43,7 +70,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
   .Level {
     flex-direction: row;
     padding: 4rem;
@@ -51,7 +78,10 @@
     margin: 0 auto;
 
     &__left{
-      width: 550px
+      padding: 0 1rem 0 0;
+      width: 15%;
+      min-width: 15%;
+      max-width: 15%;
     }
 
     &__right{

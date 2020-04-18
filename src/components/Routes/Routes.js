@@ -22,6 +22,7 @@ const VocabularyTopicPage = asyncComponent(() => import('../pages/VocabularyTopi
 const MusicPage = asyncComponent(() => import('../pages/MusicPage/MusicPage'));
 const AudiobooksPage = asyncComponent(() => import('../pages/AudiobooksPage/AudiobooksPage'));
 const FilmsPage = asyncComponent(() => import('../pages/FilmsPage/FilmsPage'));
+const FilmPage = asyncComponent(() => import('../pages/FilmPage/FilmPage'));
 const PodcastsPage = asyncComponent(() => import('../pages/PodcastsPage/PodcastsPage'));
 const SeriesPage = asyncComponent(() => import('../pages/SeriesPage/SeriesPage'));
 
@@ -56,6 +57,11 @@ const Routes = () => {
                 <Route path="/podcasts" exact component={PodcastsPage}/>
 
                 <Route path="/films" exact component={FilmsPage}/>
+                <Route path="/films/all" exact component={FilmsPage}/>
+                <Route path="/films/recommended" exact component={FilmsPage}/>
+                <Route path="/films/my" exact component={FilmsPage}/>
+                <Route path="/films/:id" exact component={FilmPage}/>
+
                 <Route path="/series" exact component={SeriesPage}/>
 
                 <Route path="/logout" component={Logout}/>

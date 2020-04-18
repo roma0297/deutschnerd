@@ -1,0 +1,32 @@
+.FilmsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 375px) {
+    .FilmsContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .FilmsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .FilmsContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 1rem;
+    }
+}

@@ -4,28 +4,72 @@
 
 @media (min-width: 768px) {
     .NavigationBar {
-        display: flex;
-        justify-content: space-between;
+        display: block;
 
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
+        &__inner {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 1rem;
 
-        li {
-            display: inline-block;
-            margin: 20px;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+            }
 
-            a {
-                text-decoration: none;
-                color: black;
+            li {
+                display: inline-block;
+                margin: 1rem;
 
-                &:hover,&:active {
-                    color: orange;
+                a {
+                    text-decoration: none;
+                    color: black;
+
+                    &:hover,&:active {
+                        color: orange;
+                    }
                 }
             }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .NavigationBar {
+        &__inner {
+            margin: 0 3rem;
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+            }
+
+            li {
+                display: inline-block;
+                margin: 1rem;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+
+                    &:hover,&:active {
+                        color: orange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    .NavigationBar {
+        &__inner {
+            margin: 0 auto;
+            max-width: 1440px;
+            padding: 0 3rem;
         }
     }
 }
