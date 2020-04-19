@@ -1,0 +1,42 @@
+.Episode {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: .2em;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-0.5em);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  details {
+    margin-top: .5rem;
+
+    &[open] {
+      animation-name: fadeInDown;
+      animation-duration: 1s;
+    }
+
+    summary {
+      font-size: .8rem;
+      color: #5e5e5e;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+}

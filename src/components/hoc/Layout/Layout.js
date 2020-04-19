@@ -1,9 +1,10 @@
 import React from "react";
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
+import styles from './Layout.module.scss';
 
 const Layout = (props) => (
-    <div className="page-content">
+    <div className={styles.PageContent}>
         <Header/>
             {props.children}
         <Footer/>

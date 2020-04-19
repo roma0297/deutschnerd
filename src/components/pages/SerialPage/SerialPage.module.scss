@@ -1,82 +1,91 @@
-.FilmContainer {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 1rem;
+.SerialContainer {
+  flex-grow: 1;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
 
   &__left {
-    grid-row: 2 / 3;
+    width: 100%;
+
+    & > * + * {
+      margin-top: .5rem;
+    }
+
+    img {
+      border-radius: .2em;
+      width: 100%;
+    }
   }
 
-  &__video {
-    grid-row: 1 / 2;
+  &__right {
+    width: 100%;
+    margin-left: 1rem;
 
-    video {
-      width: 100%;
+    ul {
+      display: flex;
+
+      & > li + li {
+        margin-left: 1rem;
+      }
+
+      li {
+        list-style: none;
+
+        a{
+          text-decoration: none;
+          color: black;
+
+          &:hover {
+
+          }
+        }
+      }
     }
   }
 }
 
 @media (min-width: 375px) {
-  .FilmContainer {
+  .SerialContainer {
 
     &__left {
     }
 
-    &__video {
+    &__right {
     }
 
   }
 }
 
 @media (min-width: 768px) {
-  .FilmContainer {
+  .SerialContainer {
+    flex-direction: row;
     padding: 2rem;
-    grid-gap: 2rem;
 
     &__left {
+      width: 220px;
     }
 
-    &__video {
+    &__right {
     }
   }
 }
 
 @media (min-width: 1024px) {
-  .FilmContainer {
-    padding: 2rem 4rem;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 4fr;
+  .SerialContainer {
+
 
     &__left {
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
-      display: flex;
-      flex-direction: column;
 
-      img {
-        width: 100%
-      }
-
-      & > * + * {
-        margin-top: .5rem;
-      }
     }
 
-    &__video {
-      grid-row: 1 / 2;
-      grid-column: 2 / 3;
-
-      & > * + * {
-        margin-top: .5rem;
-      }
+    &__right {
     }
   }
 }
 
 @media (min-width: 1440px) {
-  .FilmContainer {
+  .SerialContainer {
     margin: 0 auto;
     padding: 2rem 4rem;
     max-width: 1440px;

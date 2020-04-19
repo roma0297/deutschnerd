@@ -67,7 +67,7 @@ const Routes = () => {
                 <Route path="/series/all" exact component={SeriesPage}/>
                 <Route path="/series/recommended" exact component={SeriesPage}/>
                 <Route path="/series/my" exact component={SeriesPage}/>
-                <Route path="/series/:id" exact component={SerialPage}/>
+                <Route path="/series/:id" component={SerialPage}/>
                 <Route path="/series" exact component={SeriesPage}/>
 
                 <Route path="/logout" component={Logout}/>
