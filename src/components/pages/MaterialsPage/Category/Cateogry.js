@@ -1,14 +1,18 @@
 import React from 'react';
 import {withRouter} from "react-router";
+import styles from './Category.module.scss'
 
 const category = (props) => {
 
     const changeRoute = (link) => props.history.push(link);
 
     return (
-        <div className={props.className} onClick={() => changeRoute(props.link)}>
+        <div className={`${props.className} ${styles.Category}`} onClick={() => changeRoute(props.link)}>
+            <div className={styles.Category__info}/>
+            <div className={styles.Category__description}>
+                {props.description}
+            </div>
             <h3>{props.title}</h3>
-            <h3>{props.description || ""}</h3>
         </div>
     );
 };

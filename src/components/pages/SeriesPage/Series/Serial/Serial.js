@@ -26,24 +26,19 @@ const Serial = (props) => {
             onMouseLeave={() => setHover(false)}
             onClick={() => handleClick(`/series/${props.id}`)}
         >
-            {hover ? (
-                <div className={`${styles.Serial__inner} ${styles.Serial__inner_hover}`}>
-                    <h3>{props.title}</h3>
-                    <p>
-                        <span>{props.duration} min. </span>
-                        <span>{props.year} </span>
-                        <span>IMDB: {props.rating}</span>
-                    </p>
-                    <p>{props.description}</p>
-                </div>
-            ) : (
-                <>
-                    <div className={styles.Serial__inner}>
-                        <img src={coverUrl}/>
-                        <h3>{props.title || ""}</h3>
-                    </div>
-                </>
-            )}
+            <div className={`${styles.Serial__description}`}>
+                <h3>{props.title}</h3>
+                <p>
+                    <span>{props.duration} min. </span>
+                    <span>{props.year} </span>
+                    <span>IMDB: {props.rating}</span>
+                </p>
+                <p>{props.description}</p>
+            </div>
+            <div className={styles.Serial__inner}>
+                <img src={coverUrl}/>
+                <h3>{props.title || ""}</h3>
+            </div>
         </div>
     );
 }
