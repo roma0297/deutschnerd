@@ -2,6 +2,10 @@
   position: relative;
   overflow: hidden;
 
+  &__title {
+    margin: 1rem 0 0 1rem;
+  }
+
   &__info {
     position: absolute;
     top: 1rem;
@@ -27,7 +31,7 @@
     font-weight: 300;
     height: 100%;
     opacity: 0;
-    padding: 1rem;
+    padding: 1rem 3rem 1rem 1rem;
     position: absolute;
     transform: translateY(-100%);
     transition: transform 0.2s ease-out;

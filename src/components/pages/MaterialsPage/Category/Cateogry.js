@@ -12,7 +12,7 @@ const category = (props) => {
             <div className={styles.Category__description}>
                 {props.description}
             </div>
-            <h3>{props.title}</h3>
+            <h3 className={styles.Category__title}>{props.title}</h3>
         </div>
     );
 };
