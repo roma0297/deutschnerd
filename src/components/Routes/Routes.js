@@ -7,6 +7,7 @@ import asyncComponent from "../hoc/asyncComponent";
 import {AuthContext} from "../../context/authentication";
 
 const AccountPage = asyncComponent(() => import('../pages/AccountPage/AccountPage'));
+const AdminConsolePage = asyncComponent(() => import('../pages/admin/AdminConsolePage/AdminConsolePage'));
 const ArticlePage = asyncComponent(() => import('../pages/ArticlePage/ArticlePage'));
 const ArticlesPage = asyncComponent(() => import('../pages/ArticlesPage/ArticlesPage'));
 const AudiobooksPage = asyncComponent(() => import('../pages/AudiobooksPage/AudiobooksPage'));
@@ -33,6 +34,8 @@ const Routes = () => {
     return currentUser
         ? (
             <Switch>
+                <Route path="/admin" component={AdminConsolePage}/>
+
                 <Route path="/" exact component={MainPage}/>
                 <Route path="/levels" exact component={LevelsPage}/>
                 <Route path="/materials" exact component={MaterialsPage}/>
@@ -73,6 +76,7 @@ const Routes = () => {
                 <Route path="/logout" component={Logout}/>
                 <Route path="/exercise" component={LessonAlphabet}/>
                 <Route path="/" component={NotFoundPage}/>
+
             </Switch>
         )
         : (
