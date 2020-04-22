@@ -18,7 +18,7 @@ const FilmsCockpit = () => {
                 })))
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [editing])
 
     if (!Array.isArray(films) || !films.length) {
         return null
@@ -46,7 +46,6 @@ const FilmsCockpit = () => {
 
     return (
         <>
-            {/*{JSON.stringify(films)}*/}
             <FilmEditModal
                 show={editing}
                 clicked={() => setEditing(false)}
