@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import 'react-quill/dist/quill.snow.css';
 import styles from './EditArticlePage.module.scss'
 import Form from "../../../UI/Form/Form";
+import Button from "@material-ui/core/Button";
+import {firestore} from "../../../../init-firebase";
 
 const EditArticlePage = () => {
     const [inputs, setInputs] = useState({
@@ -47,11 +49,22 @@ const EditArticlePage = () => {
         }
     });
 
+    const handleSubmit = () => {
+        let formData = {}
+        Object.keys(inputs).forEach(key => formData[key] = inputs[key].value)
+        firestore.collection("articles").add(formData)
+            .catch(err => console.log(err));
+    };
+
     return (
         <div className={styles.EditArticlePage}>
             <h2>Editing article</h2>
             <Form inputs={inputs} setInputs={setInputs}/>
-            <button onClick={() => {console.log(inputs)}}>sdfs</button>
+            <div>
+                <Button variant="contained" color="primary" onClick={() => handleSubmit()}>
+                    Опубликовать
+                </Button>
+            </div>
         </div>
     );
 }

@@ -34,6 +34,7 @@ const FormElement = (props) => {
                     defaultValue={[]}
                     renderInput={(params) => (
                         <TextField
+                            fullWidth
                             {...params}
                             variant="outlined"
                             label={props.label}
@@ -46,18 +47,13 @@ const FormElement = (props) => {
         default:
             formElement = (
                 <TextField
+                    fullWidth
                     id={props.elementConfig.id}
                     label={props.label}
                     onChange={event => props.onChangeHandler(event.target.value)}
                     type={props.elementConfig.type}
                     value={props.value}
                     variant="outlined" />
-                // <input
-                //     className={styles.FormElement__input}
-                //     {...props.elementConfig}
-                //     onChange={event => props.onChangeHandler(event.target.value)}
-                //     value={props.value}
-                // />
             )
     }
 
