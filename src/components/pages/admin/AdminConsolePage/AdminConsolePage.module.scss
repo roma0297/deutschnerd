@@ -17,6 +17,10 @@
         width: 20%;
         position: sticky;
 
+        & > ul + ul {
+            margin-top: 1.5rem;
+        }
+
         ul {
             & > li + li {
                 margin-top: .5rem;
@@ -40,7 +44,6 @@
 
     &__main {
         border-radius: .2rem;
-        padding: 1rem;
         flex-grow: 1;
     }
 }

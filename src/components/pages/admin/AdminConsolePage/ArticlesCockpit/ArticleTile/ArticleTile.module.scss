@@ -1,0 +1,16 @@
+.ArticleTile {
+    display: flex;
+    background: white;
+    border-radius: .2em;
+    padding: 1rem;
+    align-items: center;
+
+    & > * + * {
+        margin-left: 1rem;
+    }
+
+    &__title {
+        margin: 0;
+        flex-grow: 1;
+    }
+}

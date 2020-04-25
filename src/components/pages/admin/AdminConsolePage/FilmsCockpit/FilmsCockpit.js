@@ -3,13 +3,14 @@ import {firestore} from "../../../../../init-firebase";
 import styles from './FilmsCockpit.module.scss'
 import FilmEditModal from "./FilmEditModal/FilmEditModal";
 import FilmDeleteModal from "./FilmDeleteModal/FilmDeleteModal";
+import Button from "../../../../UI/Button/Button";
 
 const FilmsCockpit = () => {
     let [films, setFilms] = useState([]);
     let [filmToBeEdited, setFilmToBeEdited] = useState(null)
     let [editing, setEditing] = useState(false)
-    let [deleting, setDeleting] = useState(false)
     let [filmToBeDeleted, setFilmToBeDeleted] = useState(null)
+    let [deleting, setDeleting] = useState(false)
 
     useEffect(() => {
         firestore.collection('films').get()
@@ -29,24 +30,26 @@ const FilmsCockpit = () => {
     const filmsList = films.map(film => (
         <div className={styles.Film}>
             <h3 className={styles.Film__title}>{film.title}</h3>
-            <button
-                className={`${styles.Film__button} ${styles.Film__button_primary}`}
+            <Button
+                color='primary'
+                variant='contained'
                 onClick={() => {
                     setFilmToBeEdited(film)
                     setEditing(true)
                 }}
             >
                 Edit
-            </button>
-            <button
-                className={`${styles.Film__button} ${styles.Film__button_danger}`}
+            </Button>
+            <Button
+                color='danger'
+                variant='contained'
                 onClick={() => {
                     setFilmToBeDeleted(film)
                     setDeleting(true)
                 }}
             >
                 Delete
-            </button>
+            </Button>
         </div>
     ))
 
@@ -62,7 +65,9 @@ const FilmsCockpit = () => {
                 clicked={() => setDeleting(false)}
                 film={filmToBeDeleted || films[0]}
             />
+
             <div className={styles.FilmsCockpit}>
+                <h1>Фильмы</h1>
                 {filmsList}
             </div>
         </>
