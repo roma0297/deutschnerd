@@ -27,6 +27,7 @@ const SerialPage = asyncComponent(() => import('../pages/SerialPage/SerialPage')
 const SeriesPage = asyncComponent(() => import('../pages/SeriesPage/SeriesPage'));
 const VocabularyPage = asyncComponent(() => import('../pages/VocabularyPage/VocabularyPage'));
 const VocabularyTopicPage = asyncComponent(() => import('../pages/VocabularyTopicPage/VocabularyTopicPage'));
+const EditArticlePage = asyncComponent(() => import('../pages/admin/EditArticlePage/EditArticlePage'));
 
 const Routes = () => {
     const currentUser = useContext(AuthContext);
@@ -34,6 +35,7 @@ const Routes = () => {
     return currentUser
         ? (
             <Switch>
+                <Route path="/admin/article" exact component={EditArticlePage}/>
                 <Route path="/admin" component={AdminConsolePage}/>
 
                 <Route path="/" exact component={MainPage}/>

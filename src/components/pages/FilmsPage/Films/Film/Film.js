@@ -33,7 +33,7 @@ const Film = (props) => {
                 <p>{props.description}</p>
             </div>
             <div className={styles.Film__inner}>
-                <img src={coverUrl}/>
+                <img src={coverUrl} alt="Film"/>
                 <h3>{props.title || ""}</h3>
             </div>
         </div>

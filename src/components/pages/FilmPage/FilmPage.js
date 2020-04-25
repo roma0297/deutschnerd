@@ -37,7 +37,7 @@ const FilmPage = (props) => {
             })
             .catch(err => console.log(err))
 
-    }, [filmInformation.videoUrl, props.match.params.id])
+    }, [filmInformation.coverUrl, filmInformation.videoUrl, props.match.params.id])
 
     if (loading) {
         return <Spinner/>
@@ -47,7 +47,7 @@ const FilmPage = (props) => {
         <Layout>
             <div className={styles.FilmContainer}>
                 <aside className={styles.FilmContainer__left}>
-                    <img src={coverUrl}/>
+                    <img src={coverUrl} alt="Film"/>
                     <h3>{filmInformation.title}</h3>
                     <p><span>Duration: </span>{filmInformation.duration} min. </p>
                     <p><span>Year: </span>{filmInformation.year} </p>

@@ -49,7 +49,7 @@ const SerialPage = (props) => {
         <Layout>
             <div className={styles.SerialContainer}>
                 <aside className={styles.SerialContainer__left}>
-                    <img src={coverUrl}/>
+                    <img src={coverUrl} alt="film"/>
                     <h3>{serialInformation.title}</h3>
                     <p><span>Duration: </span>{serialInformation.duration} min. </p>
                     <p><span>Status: </span>{serialInformation.status} </p>

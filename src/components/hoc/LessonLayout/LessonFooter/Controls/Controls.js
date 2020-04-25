@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Controls.module.scss'
-import Link from 'react-router-dom/Link';
+import {Link} from "react-router-dom";
 
 const Controls = (props) => (
     <div className={styles.Controls}>

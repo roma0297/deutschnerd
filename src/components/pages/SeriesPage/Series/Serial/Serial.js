@@ -4,7 +4,6 @@ import {storage} from "../../../../../init-firebase";
 import {withRouter} from "react-router";
 
 const Serial = (props) => {
-    let [hover, setHover] = useState(false);
     let [coverUrl, setCoverUrl] = useState('');
 
     useEffect(() => {
@@ -20,12 +19,7 @@ const Serial = (props) => {
     };
 
     return (
-        <div
-            className={styles.Serial}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            onClick={() => handleClick(`/series/${props.id}`)}
-        >
+        <div className={styles.Serial} onClick={() => handleClick(`/series/${props.id}`)}>
             <div className={`${styles.Serial__description}`}>
                 <h3>{props.title}</h3>
                 <p>
@@ -36,7 +30,7 @@ const Serial = (props) => {
                 <p>{props.description}</p>
             </div>
             <div className={styles.Serial__inner}>
-                <img src={coverUrl}/>
+                <img src={coverUrl} alt="Serial"/>
                 <h3>{props.title || ""}</h3>
             </div>
         </div>

@@ -69,7 +69,7 @@ const FilmEditModal = (props) => {
         Object.keys(inputs)
             .forEach(key => newInputs[key].value = props.film[key])
         setInputs(newInputs);
-    }, [props.film])
+    }, [inputs, props.film])
 
     const onChangeHandler = (event, inputIdentifier) => {
         const updatedInputs = {...inputs};

@@ -46,7 +46,7 @@ const SignInForm = (props) => {
             } catch (err) {
                 console.log(err);
             }
-        }
+        }, [inputs.email.value, inputs.password.value, props.history]
     )
 
     const formElements = Object.keys(inputs)

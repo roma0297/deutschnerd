@@ -22,7 +22,7 @@ const Article = (props) => {
 
     return(
         <div className={styles.Article} onClick={() => handleClick(`/articles/${props.id}`)}>
-            <img className={styles.Article__img} src={imageUrl}/>
+            <img className={styles.Article__img} src={imageUrl} alt="Article"/>
             <ArticleFooter {...props}/>
         </div>
     )
