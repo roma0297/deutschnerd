@@ -1,19 +1,12 @@
 .Article {
-  background-color: #ffcf31;
-  position: relative;
+  background-color: white;
   border-radius: .2em;
+  overflow: hidden;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 
-  &:after{
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-  }
-
-  &__inner {
-    padding: 1rem;
-    position: absolute;
-    height: 100%;
+  &__img {
     width: 100%;
   }
 }

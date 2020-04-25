@@ -66,7 +66,6 @@ const FilmEditModal = (props) => {
     
     useEffect(() => {
         const newInputs = {...inputs}
-        debugger
         Object.keys(inputs)
             .forEach(key => newInputs[key].value = props.film[key])
         setInputs(newInputs);

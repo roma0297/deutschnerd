@@ -34,7 +34,7 @@ const Film = (props) => {
             </div>
             <div className={styles.Film__inner}>
                 <img src={coverUrl}/>
-            <h3>{props.title || ""}</h3>
+                <h3>{props.title || ""}</h3>
             </div>
         </div>
     )
