@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Layout from '../../hoc/Layout/Layout';
 import {withRouter} from 'react-router';
 import {firestore} from "../../../init-firebase";
+import styles from './ArticlePage.module.scss'
+import Tag from "../../UI/Tag/Tag";
 
 const ArticlePage = (props) => {
     let [article, setArticle] = useState({})
@@ -13,9 +15,15 @@ const ArticlePage = (props) => {
         });
     }, [props.match.params.id, props.token])
 
+    const tags = (article.tags || []).map(tag => <Tag>{tag}</Tag>)
+
     return(
         <Layout>
-            <div>Article name: {article.title}</div>
+            <article className={styles.TextContainer}>
+                <h1>{article.title}</h1>
+                <div dangerouslySetInnerHTML={{__html: article.text}}/>
+                <div className={styles.TextContainer__tags}>{tags}</div>
+            </article>
         </Layout>
     )
 };

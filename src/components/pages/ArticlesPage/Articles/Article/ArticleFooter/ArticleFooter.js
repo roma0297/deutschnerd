@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './ArticleFooter.module.scss'
+import Tag from "../../../../../UI/Tag/Tag";
 
 const ArticleFooter = props => {
-    const tags = (props.tags || []).map(tag => <span>{tag}</span>)
+    const tags = (props.tags || []).map(tag => <Tag>{tag}</Tag>)
 
     console.log(props.publicationDate);
     return (

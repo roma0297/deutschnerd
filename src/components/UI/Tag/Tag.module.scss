@@ -1,0 +1,15 @@
+.Tag {
+  font-size: 1rem;
+  color: #9c9c9c;
+  border: 1px solid #9c9c9c;
+  border-radius: 2rem;
+  padding: .2rem .5rem;
+  transition: color .3s ease-out, border-color .3s ease-out;
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+    border-color: black;
+    cursor: pointer;
+  }
+}

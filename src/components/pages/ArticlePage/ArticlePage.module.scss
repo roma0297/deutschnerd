@@ -1,0 +1,35 @@
+.TextContainer {
+  margin: 2rem 1rem;
+  font-size: 1.25rem;
+
+  & > * + * {
+    margin-top: 3rem;
+  }
+
+  &__tags > span + span {
+    margin-left: .2rem;
+  }
+}
+
+@media (min-width: 375px) {
+  .TextContainer {
+    margin: 2rem 1rem;
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .TextContainer {
+    margin: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .TextContainer {
+    margin: 2rem 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+
+}
