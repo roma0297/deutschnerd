@@ -1,18 +1,15 @@
 .BooksContainer {
-  padding: 1rem;
   display: grid;
   grid-template-columns: 3fr;
   grid-gap: 1rem;
 
   &__left {
     display: none;
-    cursor: pointer;
   }
 }
 
 @media (min-width: 375px) {
   .BooksContainer {
-    padding: 1rem;
     grid-template-columns: 3fr;
     grid-gap: 1rem;
 
@@ -25,24 +22,28 @@
 
 @media (min-width: 768px) {
   .BooksContainer {
-    padding: 2rem;
+    margin: 2rem;
     grid-template-columns: 1fr 4fr;
     grid-gap: 2rem;
 
     &__left {
       display: block;
       font-size: 1rem;
-      padding: 0 1rem;
 
       ul {
         list-style: none;
 
         li {
-          margin-bottom: 1rem;
-          padding: calc(.3rem + 4px);
+          margin-bottom: 2rem;
 
-          &:hover {
-            color:orange;
+          a {
+            color: black;
+            text-decoration: none;
+
+            &:hover {
+              cursor: pointer;
+              color:orange;
+            }
           }
         }
       }
@@ -52,7 +53,14 @@
 
 @media (min-width: 1024px) {
   .BooksContainer {
+    margin: 2rem 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .BooksContainer {
+    margin: 0 auto;
+    padding: 2rem 4rem;
     max-width: 1440px;
-    margin: 2rem auto 0;
   }
 }
